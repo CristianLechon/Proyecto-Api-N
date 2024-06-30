@@ -1,4 +1,4 @@
-package ec.edu.uce.ProyectoNasaMars.downloader;
+package ec.edu.uce.ProyectoNasaMars.service;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;

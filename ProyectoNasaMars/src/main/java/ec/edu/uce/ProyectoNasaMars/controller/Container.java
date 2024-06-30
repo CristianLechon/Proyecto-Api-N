@@ -1,9 +1,10 @@
 package ec.edu.uce.ProyectoNasaMars.controller;
 
-import ec.edu.uce.ProyectoNasaMars.downloader.MarsData;
+import ec.edu.uce.ProyectoNasaMars.service.MarsData;
 import ec.edu.uce.ProyectoNasaMars.model.MarsPhoto;
 import ec.edu.uce.ProyectoNasaMars.service.MarsPhotoService;
 import ec.edu.uce.ProyectoNasaMars.service.MarsPhotoServiceImpl;
+import ec.edu.uce.ProyectoNasaMars.view.ImageFrame;
 
 import java.util.List;
 
@@ -12,6 +13,7 @@ public class Container {
 
     private MarsData marsData;
     private MarsPhotoService marsPhotoService;
+    private ImageFrame imageFrame;
 
     public Container() {
         marsData = new MarsData();
@@ -22,9 +24,9 @@ public class Container {
         return marsData.getAllMarsPhotos();
     }
 
-    public List<MarsPhoto> getByDateSequential(List<MarsPhoto> marsPhotos, String aux) throws Exception {
+    public List<MarsPhoto> getByDateSequential(String aux) throws Exception {
         long inicioDeTarea = System.currentTimeMillis();
-        List<MarsPhoto> photos = marsPhotoService.filterByDateSequential(marsPhotos, aux);
+        List<MarsPhoto> photos = marsPhotoService.filterByDateSequential(marsData.getAllMarsPhotos(), aux);
         long finDeTarea = System.currentTimeMillis();
         long duracionTarea = finDeTarea - inicioDeTarea;
         System.out.println("Duracion del filtado por fecha secuencial: " + duracionTarea + " ms");
@@ -74,6 +76,10 @@ public class Container {
         long duracionTarea = finDeTarea - inicioDeTarea;
         System.out.println("Duracion del filtrado por nombre paralela: " + duracionTarea + " ms");
         return photos;
+    }
+
+    public void getImage(String urlImage) {
+        imageFrame = new ImageFrame(urlImage);
     }
 
 }

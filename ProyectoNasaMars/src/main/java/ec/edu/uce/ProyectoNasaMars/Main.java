@@ -5,9 +5,8 @@ import ec.edu.uce.ProyectoNasaMars.view.MarsPhotoFrame;
 /**
  * @author Cristian Lechon
  * Titulo: Proyecto Api Nasa
- * Descripcion: Recuerde que los nombres son en mayuscula,
- * para ver las imagenes tiene que copiar el link de la tabla y agregar
- * una "s" en http y dar click en ver.
+ * Descripcion: Recuerde que los nombres de las
+ * camaras son en mayúscula, y la fecha en YYYY/MM/DD.
  */
 
 public class Main {
